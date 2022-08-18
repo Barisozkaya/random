@@ -1,4 +1,4 @@
-package com.example.random.ui
+package com.example.random.application
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -14,7 +14,7 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()  {
 
     @Inject
     lateinit var catRepository: CatRepository

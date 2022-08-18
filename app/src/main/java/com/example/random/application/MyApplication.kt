@@ -1,4 +1,4 @@
-package com.example.random.ui
+package com.example.random.application
 
 import android.app.Application
 import android.content.pm.PackageManager
