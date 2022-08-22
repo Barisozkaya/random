@@ -26,7 +26,7 @@ abstract class NetworkingModule {
     ): Networking
 }
 
-class NetworkingImpl @Inject constructor(): Networking {
+class NetworkingImpl @Inject constructor() : Networking {
 
     private val client: OkHttpClient by lazy {
         val logging = HttpLoggingInterceptor()

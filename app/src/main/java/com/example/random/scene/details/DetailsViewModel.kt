@@ -1,4 +1,4 @@
-package com.example.random.scene.home
+package com.example.random.scene.details
 
 import com.example.random.shared.base.BaseViewModel
 import com.example.random.shared.repositories.cat.CatRepository
@@ -7,7 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val repository: CatRepository, private val repository2: DogRepository) : BaseViewModel() {
+class DetailsViewModel @Inject constructor(private val repository: CatRepository,private val repository2: DogRepository) : BaseViewModel() {
     fun getDog() {
         repository.random()
     }

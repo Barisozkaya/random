@@ -6,9 +6,9 @@ object APIConstants {
         val baseUrl: String = "https://api.thecatapi.com/v1/"
         var apiKey: String = ""
     }
+
     object Dog {
         val baseUrl: String = "https://api.thedogapi.com/v1/"
         var apiKey: String = ""
     }
-
 }

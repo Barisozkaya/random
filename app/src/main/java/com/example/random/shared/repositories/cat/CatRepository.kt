@@ -6,16 +6,16 @@ import com.example.random.shared.repositories.cat.models.CatModel
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ViewModelComponent
 import retrofit2.Call
 import javax.inject.Inject
 
-interface  CatRepository {
+interface CatRepository {
     fun random(): Call<List<CatModel>>
 }
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class CatRepositoryModule {
 
     @Binds

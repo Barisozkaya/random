@@ -6,15 +6,15 @@ import com.example.random.shared.repositories.dog.models.DogModel
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ViewModelComponent
 import retrofit2.Call
 import javax.inject.Inject
 
-interface  DogRepository {
+interface DogRepository {
     fun random(): Call<List<DogModel>>
 }
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ViewModelComponent::class)
 abstract class DogRepositoryModule {
 
     @Binds
