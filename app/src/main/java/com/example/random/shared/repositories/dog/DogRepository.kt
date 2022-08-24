@@ -7,11 +7,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import retrofit2.Call
 import javax.inject.Inject
 
 interface DogRepository {
-    fun random(): Call<List<DogModel>>
+    suspend fun random(): List<DogModel>
 }
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -33,7 +32,7 @@ class DogRepositoryImpl @Inject constructor(networking: Networking) : DogReposit
             .create(DogAPI::class.java)
     }
 
-    override fun random(): Call<List<DogModel>> {
+    override suspend fun random(): List<DogModel> {
         return api.random()
     }
 }

@@ -7,11 +7,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import retrofit2.Call
 import javax.inject.Inject
 
 interface CatRepository {
-    fun random(): Call<List<CatModel>>
+   suspend fun random(): List<CatModel>
 }
 
 @Module
@@ -34,7 +33,7 @@ class CatRepositoryImpl @Inject constructor(networking: Networking) : CatReposit
             .create(CatAPI::class.java)
     }
 
-    override fun random(): Call<List<CatModel>> {
+    override suspend fun random(): List<CatModel> {
         return api.random()
     }
 }
