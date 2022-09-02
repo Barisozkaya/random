@@ -8,20 +8,7 @@
     tools:context=".scene.home.HomeFragment">
 
     <Button
-        android:id="@+id/btn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:text="Go To Second"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.898" />
-
-    <Button
-        android:id="@+id/button"
+        android:id="@+id/catButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cat"
@@ -33,7 +20,7 @@
         app:layout_constraintVertical_bias="0.77" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/dogButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
