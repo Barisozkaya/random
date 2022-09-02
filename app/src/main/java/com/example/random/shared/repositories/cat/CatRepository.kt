@@ -10,7 +10,7 @@ import dagger.hilt.android.components.ViewModelComponent
 import javax.inject.Inject
 
 interface CatRepository {
-   suspend fun random(): List<CatModel>
+    suspend fun random(): List<CatModel>
 }
 
 @Module

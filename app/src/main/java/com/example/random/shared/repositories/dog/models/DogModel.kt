@@ -12,7 +12,3 @@ data class DogModel(
     @SerializedName("height")
     val height: Int
 )
-
-
-
-

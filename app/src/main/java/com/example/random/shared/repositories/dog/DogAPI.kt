@@ -9,4 +9,3 @@ interface DogAPI {
     @GET("images/search")
     suspend fun random(@Query("api_key") apiKey: String = APIConstants.Dog.apiKey): List<DogModel>
 }
-
