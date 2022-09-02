@@ -28,7 +28,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }
 
         binding.dogButton.setOnClickListener {
-            viewModel.getCat()
+            viewModel.getDog()
         }
     }
 
