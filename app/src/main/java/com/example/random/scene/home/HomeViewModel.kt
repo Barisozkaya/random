@@ -1,6 +1,5 @@
 package com.example.random.scene.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.random.shared.base.BaseViewModel
@@ -17,23 +16,32 @@ class HomeViewModel @Inject constructor(
     private val catRepository: CatRepository,
     private val dogRepository: DogRepository
 ) : BaseViewModel() {
-    private var _catLiveData: MutableLiveData<List<CatModel>> = MutableLiveData()
-    val catLiveData: LiveData<List<CatModel>>
-        get() = _catLiveData
+    val catLiveData: MutableLiveData<List<CatModel>> = MutableLiveData()
+    val dogLiveData: MutableLiveData<List<DogModel>> = MutableLiveData()
+    val loadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
+    val errorLiveData: MutableLiveData<String> = MutableLiveData()
 
     fun getCat() {
         viewModelScope.launch {
-            _catLiveData.value = catRepository.random()
+            loadingLiveData.value = true
+            try {
+                catLiveData.value = catRepository.random()
+            } catch (e: Exception) {
+                errorLiveData.value = e.toString()
+            }
+            loadingLiveData.value = false
         }
     }
 
-    private var _dogLiveData: MutableLiveData<List<DogModel>> = MutableLiveData()
-    val dogLiveData: MutableLiveData<List<DogModel>>
-        get() = _dogLiveData
-
     fun getDog() {
         viewModelScope.launch {
-            _dogLiveData.value = dogRepository.random()
+            loadingLiveData.value = true
+            try {
+                dogLiveData.value = dogRepository.random()
+            } catch (e: Exception) {
+                errorLiveData.value = e.toString()
+            }
+            loadingLiveData.value = false
         }
     }
 }

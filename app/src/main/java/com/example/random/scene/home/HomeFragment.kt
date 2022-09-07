@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.random.databinding.FragmentHomeBinding
 import com.example.random.scene.details.models.DetailsModel
 import com.example.random.shared.base.BaseFragment
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -40,6 +41,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         viewModel.dogLiveData.observe(viewLifecycleOwner) {
             val model = DetailsModel(url = it.first().url)
             navigateDetail(model = model)
+        }
+        viewModel.loadingLiveData.observe(viewLifecycleOwner) {
+            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
+        }
+        viewModel.errorLiveData.observe(viewLifecycleOwner) { message ->
+            this.view?.let { view ->
+                val snack = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
+                snack.show()
+            }
         }
     }
 
