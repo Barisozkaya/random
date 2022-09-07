@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">random</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="random">Random</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- HomeFragment -->
+    <string name="button_cat">Cat</string>
+    <string name="button_dog">Dog</string>
+
 </resources>

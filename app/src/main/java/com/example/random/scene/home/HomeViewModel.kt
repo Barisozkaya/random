@@ -16,32 +16,31 @@ class HomeViewModel @Inject constructor(
     private val catRepository: CatRepository,
     private val dogRepository: DogRepository
 ) : BaseViewModel() {
-    val catLiveData: MutableLiveData<List<CatModel>> = MutableLiveData()
-    val dogLiveData: MutableLiveData<List<DogModel>> = MutableLiveData()
-    val loadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    val errorLiveData: MutableLiveData<String> = MutableLiveData()
+
+    val cat: MutableLiveData<List<CatModel>> = MutableLiveData()
+    val dog: MutableLiveData<List<DogModel>> = MutableLiveData()
 
     fun getCat() {
         viewModelScope.launch {
-            loadingLiveData.value = true
+            loading.value = true
             try {
-                catLiveData.value = catRepository.random()
+                cat.value = catRepository.random()
             } catch (e: Exception) {
-                errorLiveData.value = e.toString()
+                error.value = e.toString()
             }
-            loadingLiveData.value = false
+            loading.value = false
         }
     }
 
     fun getDog() {
         viewModelScope.launch {
-            loadingLiveData.value = true
+            loading.value = true
             try {
-                dogLiveData.value = dogRepository.random()
+                dog.value = dogRepository.random()
             } catch (e: Exception) {
-                errorLiveData.value = e.toString()
+                error.value = e.toString()
             }
-            loadingLiveData.value = false
+            loading.value = false
         }
     }
 }

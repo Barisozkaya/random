@@ -1,13 +1,10 @@
 package com.example.random.scene.home
 
-import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.random.databinding.FragmentHomeBinding
 import com.example.random.scene.details.models.DetailsModel
 import com.example.random.shared.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -16,14 +13,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
 ) {
     override val viewModel by viewModels<HomeViewModel>()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun setupListener() {
+        super.setupListener()
 
-        setupListener()
-        observeViewModel()
-    }
-
-    private fun setupListener() {
         binding.catButton.setOnClickListener {
             viewModel.getCat()
         }
@@ -33,23 +25,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(
         }
     }
 
-    private fun observeViewModel() {
-        viewModel.catLiveData.observe(viewLifecycleOwner) {
+    override fun observeViewModel() {
+        super.observeViewModel()
+
+        viewModel.cat.observe(viewLifecycleOwner) {
             val model = DetailsModel(url = it.first().url)
             navigateDetail(model = model)
         }
-        viewModel.dogLiveData.observe(viewLifecycleOwner) {
+        viewModel.dog.observe(viewLifecycleOwner) {
             val model = DetailsModel(url = it.first().url)
             navigateDetail(model = model)
-        }
-        viewModel.loadingLiveData.observe(viewLifecycleOwner) {
-            binding.progressBar.visibility = if (it) View.VISIBLE else View.GONE
-        }
-        viewModel.errorLiveData.observe(viewLifecycleOwner) { message ->
-            this.view?.let { view ->
-                val snack = Snackbar.make(view, message, Snackbar.LENGTH_LONG)
-                snack.show()
-            }
         }
     }
 
