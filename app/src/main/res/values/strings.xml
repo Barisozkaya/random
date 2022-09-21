@@ -6,5 +6,6 @@
     <string name="button_cat">Cat</string>
     <string name="button_dog">Dog</string>
     <string name="go_to_one">Go to one</string>
+    <string name="todo">TODO</string>
 
 </resources>
