@@ -21,3 +21,9 @@
 * Navigation
 
 * Glide
+
+![zooo](https://user-images.githubusercontent.com/77073139/191502563-25ba4af3-e291-416b-8da5-ad0a53e7941f.PNG)
+
+![cat](https://user-images.githubusercontent.com/77073139/191502575-263815d4-b084-414b-af19-6356822711ad.PNG)
+
+![dog](https://user-images.githubusercontent.com/77073139/191502582-d9232580-1afc-4455-a635-3358d120832a.PNG)
